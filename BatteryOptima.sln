@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34723.18
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{4420A571-6C06-48AB-A93C-616655C298FB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{30742F98-BB22-4EC5-91D2-29F4AE22A821}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{A7300E89-3F09-475A-97A4-387E7D511617}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BatteryOptima.Domain", "Core\BatteryOptima.Domain\BatteryOptima.Domain.csproj", "{0EE92E56-B2C3-4C0D-B1ED-622C5FE4591A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BatteryOptima.Persistence", "Infrastructure\BatteryOptima.Persistence\BatteryOptima.Persistence.csproj", "{740C17E5-1720-4AF3-B02C-8994C57F934C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BatteryOptima.WebApi", "Presentation\BatteryOptima.WebApi\BatteryOptima.WebApi.csproj", "{650F80EC-7D14-45AF-8183-B6024F5A4F97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BatteryOptima.Application", "BatteryOptima.Application\BatteryOptima.Application.csproj", "{7B180CF7-35AF-4F39-AA36-5E48374A18D7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0EE92E56-B2C3-4C0D-B1ED-622C5FE4591A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EE92E56-B2C3-4C0D-B1ED-622C5FE4591A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EE92E56-B2C3-4C0D-B1ED-622C5FE4591A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EE92E56-B2C3-4C0D-B1ED-622C5FE4591A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{740C17E5-1720-4AF3-B02C-8994C57F934C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{740C17E5-1720-4AF3-B02C-8994C57F934C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{740C17E5-1720-4AF3-B02C-8994C57F934C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{740C17E5-1720-4AF3-B02C-8994C57F934C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{650F80EC-7D14-45AF-8183-B6024F5A4F97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{650F80EC-7D14-45AF-8183-B6024F5A4F97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{650F80EC-7D14-45AF-8183-B6024F5A4F97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{650F80EC-7D14-45AF-8183-B6024F5A4F97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B180CF7-35AF-4F39-AA36-5E48374A18D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B180CF7-35AF-4F39-AA36-5E48374A18D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B180CF7-35AF-4F39-AA36-5E48374A18D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B180CF7-35AF-4F39-AA36-5E48374A18D7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0EE92E56-B2C3-4C0D-B1ED-622C5FE4591A} = {4420A571-6C06-48AB-A93C-616655C298FB}
+		{740C17E5-1720-4AF3-B02C-8994C57F934C} = {30742F98-BB22-4EC5-91D2-29F4AE22A821}
+		{650F80EC-7D14-45AF-8183-B6024F5A4F97} = {A7300E89-3F09-475A-97A4-387E7D511617}
+		{7B180CF7-35AF-4F39-AA36-5E48374A18D7} = {4420A571-6C06-48AB-A93C-616655C298FB}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {06537975-8EC5-4314-8467-DE951B719959}
+	EndGlobalSection
+EndGlobal
