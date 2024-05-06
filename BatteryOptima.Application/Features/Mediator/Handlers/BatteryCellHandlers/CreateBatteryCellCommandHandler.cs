@@ -19,20 +19,23 @@ namespace BatteryOptima.Application.Features.Mediator.Handlers.BatteryCellHandle
             _repository = repository;
         }
 
+
         public async Task Handle(CreateBatteryCellCommand request, CancellationToken cancellationToken)
         {
             await _repository.CreateAsync(new BatteryCell
             {
                 CellSerialNo = request.CellSerialNo,
-                CellDetailId = request.CellDetailId,               
                 InternalResistance = request.InternalResistance,
-                Voltage = request.Voltage,
+                Voltage=request.Voltage,
                 DateOfMesurementDate = request.DateOfMesurementDate,
-                Unit = request.Unit,
-                Statu = request.Statu,
-                ProducerId = request.ProducerId,
+                Unit=request.Unit,
+                Statu=request.Statu,
+                CellDetailId=request.CellDetailId,
+                ProducerId=request.ProducerId,
+
 
             });
+
         }
     }
 }
