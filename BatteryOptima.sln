@@ -9,13 +9,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{A7300E89-3F09-475A-97A4-387E7D511617}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BatteryOptima.Domain", "Core\BatteryOptima.Domain\BatteryOptima.Domain.csproj", "{0EE92E56-B2C3-4C0D-B1ED-622C5FE4591A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BatteryOptima.Domain", "Core\BatteryOptima.Domain\BatteryOptima.Domain.csproj", "{0EE92E56-B2C3-4C0D-B1ED-622C5FE4591A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BatteryOptima.Persistence", "Infrastructure\BatteryOptima.Persistence\BatteryOptima.Persistence.csproj", "{740C17E5-1720-4AF3-B02C-8994C57F934C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BatteryOptima.Persistence", "Infrastructure\BatteryOptima.Persistence\BatteryOptima.Persistence.csproj", "{740C17E5-1720-4AF3-B02C-8994C57F934C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BatteryOptima.WebApi", "Presentation\BatteryOptima.WebApi\BatteryOptima.WebApi.csproj", "{650F80EC-7D14-45AF-8183-B6024F5A4F97}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BatteryOptima.WebApi", "Presentation\BatteryOptima.WebApi\BatteryOptima.WebApi.csproj", "{650F80EC-7D14-45AF-8183-B6024F5A4F97}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BatteryOptima.Application", "BatteryOptima.Application\BatteryOptima.Application.csproj", "{7B180CF7-35AF-4F39-AA36-5E48374A18D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BatteryOptima.Application", "BatteryOptima.Application\BatteryOptima.Application.csproj", "{7B180CF7-35AF-4F39-AA36-5E48374A18D7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{9E4E6965-B5DC-4D4F-ADD8-79FB339A2EC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BatteryOptima.WebUI", "Frontend\BatteryOptima.WebUI\BatteryOptima.WebUI.csproj", "{26036443-B7A8-4466-BAF4-4A5D115C4CEC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,10 @@ Global
 		{7B180CF7-35AF-4F39-AA36-5E48374A18D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B180CF7-35AF-4F39-AA36-5E48374A18D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B180CF7-35AF-4F39-AA36-5E48374A18D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26036443-B7A8-4466-BAF4-4A5D115C4CEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26036443-B7A8-4466-BAF4-4A5D115C4CEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26036443-B7A8-4466-BAF4-4A5D115C4CEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26036443-B7A8-4466-BAF4-4A5D115C4CEC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +56,7 @@ Global
 		{740C17E5-1720-4AF3-B02C-8994C57F934C} = {30742F98-BB22-4EC5-91D2-29F4AE22A821}
 		{650F80EC-7D14-45AF-8183-B6024F5A4F97} = {A7300E89-3F09-475A-97A4-387E7D511617}
 		{7B180CF7-35AF-4F39-AA36-5E48374A18D7} = {4420A571-6C06-48AB-A93C-616655C298FB}
+		{26036443-B7A8-4466-BAF4-4A5D115C4CEC} = {9E4E6965-B5DC-4D4F-ADD8-79FB339A2EC9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {06537975-8EC5-4314-8467-DE951B719959}
