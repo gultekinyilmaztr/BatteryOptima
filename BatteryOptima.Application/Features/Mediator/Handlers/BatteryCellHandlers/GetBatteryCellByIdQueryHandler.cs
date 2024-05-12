@@ -27,8 +27,6 @@ namespace BatteryOptima.Application.Features.Mediator.Handlers.BatteryCellHandle
                 DateOfMesurementDate = values.DateOfMesurementDate,
                 Unit=values.Unit,
                 Statu=values.Statu,
-                CellDetailId=values.CellDetailId,
-                ProducerId=values.ProducerId,
 
             };
 

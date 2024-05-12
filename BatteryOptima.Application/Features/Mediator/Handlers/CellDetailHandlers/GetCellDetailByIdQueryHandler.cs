@@ -31,8 +31,6 @@ namespace BatteryOptima.Application.Features.Mediator.Handlers.CellDetailHandler
                 TestIR=values.TestIR,
                 TestVoltage=values.TestVoltage,
                 DateOfTest=values.DateOfTest,
-                CellId=values.CellId,
-
             };
         }
     }

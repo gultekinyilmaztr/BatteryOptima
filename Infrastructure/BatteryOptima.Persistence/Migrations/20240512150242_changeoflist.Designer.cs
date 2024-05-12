@@ -12,8 +12,8 @@ using ProductionOptima.Persistence.Context;
 namespace BatteryOptima.Persistence.Migrations
 {
     [DbContext(typeof(ProductionOptimaContext))]
-    [Migration("20240504160621_first2")]
-    partial class first2
+    [Migration("20240512150242_changeoflist")]
+    partial class changeoflist
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,9 +33,6 @@ namespace BatteryOptima.Persistence.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BatteryCellId"));
 
-                    b.Property<int>("CellDetailId")
-                        .HasColumnType("int");
-
                     b.Property<string>("CellSerialNo")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -45,9 +42,6 @@ namespace BatteryOptima.Persistence.Migrations
 
                     b.Property<double>("InternalResistance")
                         .HasColumnType("float");
-
-                    b.Property<int>("ProducerId")
-                        .HasColumnType("int");
 
                     b.Property<bool>("Statu")
                         .HasColumnType("bit");
@@ -61,10 +55,6 @@ namespace BatteryOptima.Persistence.Migrations
 
                     b.HasKey("BatteryCellId");
 
-                    b.HasIndex("CellDetailId");
-
-                    b.HasIndex("ProducerId");
-
                     b.ToTable("BatteryCells");
                 });
 
@@ -76,11 +66,14 @@ namespace BatteryOptima.Persistence.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CellDetailId"));
 
-                    b.Property<int>("CellId")
+                    b.Property<int>("BatteryCellId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("DateOfTest")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("ProducerId")
+                        .HasColumnType("int");
 
                     b.Property<double>("TestIR")
                         .HasColumnType("float");
@@ -89,6 +82,10 @@ namespace BatteryOptima.Persistence.Migrations
                         .HasColumnType("float");
 
                     b.HasKey("CellDetailId");
+
+                    b.HasIndex("BatteryCellId");
+
+                    b.HasIndex("ProducerId");
 
                     b.ToTable("CellDetails");
                 });
@@ -117,33 +114,33 @@ namespace BatteryOptima.Persistence.Migrations
                     b.ToTable("Producers");
                 });
 
-            modelBuilder.Entity("ProductionOptima.Domain.Entities.BatteryCell", b =>
+            modelBuilder.Entity("ProductionOptima.Domain.Entities.CellDetail", b =>
                 {
-                    b.HasOne("ProductionOptima.Domain.Entities.CellDetail", "CellDetail")
-                        .WithMany("BatteryCells")
-                        .HasForeignKey("CellDetailId")
+                    b.HasOne("ProductionOptima.Domain.Entities.BatteryCell", "BatteryCell")
+                        .WithMany("CellDetails")
+                        .HasForeignKey("BatteryCellId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("ProductionOptima.Domain.Entities.Producer", "Producer")
-                        .WithMany("BatteryCells")
+                        .WithMany("CellDetails")
                         .HasForeignKey("ProducerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("CellDetail");
+                    b.Navigation("BatteryCell");
 
                     b.Navigation("Producer");
                 });
 
-            modelBuilder.Entity("ProductionOptima.Domain.Entities.CellDetail", b =>
+            modelBuilder.Entity("ProductionOptima.Domain.Entities.BatteryCell", b =>
                 {
-                    b.Navigation("BatteryCells");
+                    b.Navigation("CellDetails");
                 });
 
             modelBuilder.Entity("ProductionOptima.Domain.Entities.Producer", b =>
                 {
-                    b.Navigation("BatteryCells");
+                    b.Navigation("CellDetails");
                 });
 #pragma warning restore 612, 618
         }

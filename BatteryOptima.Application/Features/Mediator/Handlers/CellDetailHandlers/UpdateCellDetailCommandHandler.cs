@@ -25,7 +25,6 @@ namespace BatteryOptima.Application.Features.Mediator.Handlers.CellDetailHandler
             values.TestIR=request.TestIR;
             values.TestVoltage=request.TestVoltage;
             values.DateOfTest=request.DateOfTest;
-            values.CellId=request.CellId;
             await _repository.UpdateAsync(values);
         }
     }

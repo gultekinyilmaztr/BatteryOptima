@@ -21,14 +21,12 @@ namespace BatteryOptima.Application.Features.Mediator.Handlers.BatteryCellHandle
             return values.Select(x=> new GetBatteryCellQueryResult
             {
                 BatteryCellId = x.BatteryCellId,
-                CellDetailId = x.CellDetailId,
                 CellSerialNo = x.CellSerialNo,
                 InternalResistance = x.InternalResistance,
                 Voltage = x.Voltage,
                 DateOfMesurementDate = x.DateOfMesurementDate,
                 Unit=x.Unit,
                 Statu=x.Statu,
-                ProducerId=x.ProducerId,
             }).ToList();
                 
         }

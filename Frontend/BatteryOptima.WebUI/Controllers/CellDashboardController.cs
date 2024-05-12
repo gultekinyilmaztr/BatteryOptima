@@ -2,7 +2,7 @@
 
 namespace BatteryOptima.WebUI.Controllers
 {
-    public class AdminLayoutController : Controller
+    public class CellDashboardController : Controller
     {
         public IActionResult Index()
         {

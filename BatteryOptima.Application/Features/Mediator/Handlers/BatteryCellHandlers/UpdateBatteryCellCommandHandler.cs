@@ -28,8 +28,6 @@ namespace BatteryOptima.Application.Features.Mediator.Handlers.BatteryCellHandle
             values.DateOfMesurementDate = request.DateOfMesurementDate;
             values.Unit= request.Unit;
             values.Statu= request.Statu;
-            values.CellDetailId = request.CellDetailId;
-            values.ProducerId = request.ProducerId;
             await _repository.UpdateAsync(values);
         }
     }

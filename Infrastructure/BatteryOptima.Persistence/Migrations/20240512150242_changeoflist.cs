@@ -6,25 +6,27 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace BatteryOptima.Persistence.Migrations
 {
     /// <inheritdoc />
-    public partial class first_mig : Migration
+    public partial class changeoflist : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "CellDetails",
+                name: "BatteryCells",
                 columns: table => new
                 {
-                    CellDetailId = table.Column<int>(type: "int", nullable: false)
+                    BatteryCellId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    TestIR = table.Column<double>(type: "float", nullable: false),
-                    TestVoltage = table.Column<double>(type: "float", nullable: false),
-                    DateOfTest = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CellId = table.Column<int>(type: "int", nullable: false)
+                    CellSerialNo = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    InternalResistance = table.Column<double>(type: "float", nullable: false),
+                    Voltage = table.Column<double>(type: "float", nullable: false),
+                    DateOfMesurementDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Unit = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Statu = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CellDetails", x => x.CellDetailId);
+                    table.PrimaryKey("PK_BatteryCells", x => x.BatteryCellId);
                 });
 
             migrationBuilder.CreateTable(
@@ -43,32 +45,28 @@ namespace BatteryOptima.Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "BatteryCells",
+                name: "CellDetails",
                 columns: table => new
                 {
-                    BatteryCellId = table.Column<int>(type: "int", nullable: false)
+                    CellDetailId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CellSerialNo = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    InternalResistance = table.Column<double>(type: "float", nullable: false),
-                    Voltage = table.Column<double>(type: "float", nullable: false),
-                    DateOfMesurementDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Birim = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Unit = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Statu = table.Column<bool>(type: "bit", nullable: false),
-                    CellDetailId = table.Column<int>(type: "int", nullable: false),
+                    BatteryCellId = table.Column<int>(type: "int", nullable: false),
+                    TestIR = table.Column<double>(type: "float", nullable: false),
+                    TestVoltage = table.Column<double>(type: "float", nullable: false),
+                    DateOfTest = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ProducerId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_BatteryCells", x => x.BatteryCellId);
+                    table.PrimaryKey("PK_CellDetails", x => x.CellDetailId);
                     table.ForeignKey(
-                        name: "FK_BatteryCells_CellDetails_CellDetailId",
-                        column: x => x.CellDetailId,
-                        principalTable: "CellDetails",
-                        principalColumn: "CellDetailId",
+                        name: "FK_CellDetails_BatteryCells_BatteryCellId",
+                        column: x => x.BatteryCellId,
+                        principalTable: "BatteryCells",
+                        principalColumn: "BatteryCellId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_BatteryCells_Producers_ProducerId",
+                        name: "FK_CellDetails_Producers_ProducerId",
                         column: x => x.ProducerId,
                         principalTable: "Producers",
                         principalColumn: "ProducerId",
@@ -76,13 +74,13 @@ namespace BatteryOptima.Persistence.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_BatteryCells_CellDetailId",
-                table: "BatteryCells",
-                column: "CellDetailId");
+                name: "IX_CellDetails_BatteryCellId",
+                table: "CellDetails",
+                column: "BatteryCellId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_BatteryCells_ProducerId",
-                table: "BatteryCells",
+                name: "IX_CellDetails_ProducerId",
+                table: "CellDetails",
                 column: "ProducerId");
         }
 
@@ -90,10 +88,10 @@ namespace BatteryOptima.Persistence.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "BatteryCells");
+                name: "CellDetails");
 
             migrationBuilder.DropTable(
-                name: "CellDetails");
+                name: "BatteryCells");
 
             migrationBuilder.DropTable(
                 name: "Producers");

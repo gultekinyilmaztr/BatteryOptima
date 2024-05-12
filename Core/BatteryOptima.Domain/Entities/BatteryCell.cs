@@ -16,10 +16,10 @@ namespace ProductionOptima.Domain.Entities
         public DateTime DateOfMesurementDate   { get; set; }
         public string Unit { get; set; }
         public bool Statu { get; set; }
-        public int CellDetailId { get; set; }
-        public CellDetail CellDetail { get; set; }
-        public int ProducerId { get; set; }
-        public Producer Producer { get; set; }
+        public List<CellDetail> CellDetails { get; set; }
+        
+
+
 
 
 
