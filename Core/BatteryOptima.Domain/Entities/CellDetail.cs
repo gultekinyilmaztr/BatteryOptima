@@ -15,8 +15,6 @@ namespace ProductionOptima.Domain.Entities
         public double TestIR { get; set; }
         public double TestVoltage { get; set; }
         public DateTime DateOfTest { get; set; }
-        public int ProducerId { get; set; }
-        public Producer Producer { get; set; }
 
     }
 }

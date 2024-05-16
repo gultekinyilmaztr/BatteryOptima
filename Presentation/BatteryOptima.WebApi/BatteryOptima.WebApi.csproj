@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\BatteryOptima.Domain\BatteryOptima.Domain.csproj" />
+    <ProjectReference Include="..\..\BatteryOptima.Application\BatteryOptima.Application.csproj" />
     <ProjectReference Include="..\..\Infrastructure\BatteryOptima.Persistence\BatteryOptima.Persistence.csproj" />
   </ItemGroup>
 

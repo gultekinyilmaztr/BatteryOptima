@@ -12,7 +12,7 @@ namespace ProductionOptima.Domain.Entities
         public string ProducerName { get; set; }
         public string ProducerCountry { get; set; }
         public int ProducerNo { get; set; }
-        public List<CellDetail> CellDetails { get; set; }
+        public List<BatteryCell> BatteryCells { get; set;}
 
     }
 }

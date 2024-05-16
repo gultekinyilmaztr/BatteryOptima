@@ -7,12 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\BatteryOptima.Application\BatteryOptima.Application.csproj" />
-    <ProjectReference Include="..\..\Core\BatteryOptima.Domain\BatteryOptima.Domain.csproj" />
+    <Compile Remove="Repositories\BatteryCellRepositories\**" />
+    <EmbeddedResource Remove="Repositories\BatteryCellRepositories\**" />
+    <None Remove="Repositories\BatteryCellRepositories\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Repositories\BatteryCellRepositories\" />
+    <ProjectReference Include="..\..\BatteryOptima.Application\BatteryOptima.Application.csproj" />
+    <ProjectReference Include="..\..\Core\BatteryOptima.Domain\BatteryOptima.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>

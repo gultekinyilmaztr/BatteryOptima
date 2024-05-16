@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProductionOptima.Persistence.Context;
 
@@ -11,9 +12,11 @@ using ProductionOptima.Persistence.Context;
 namespace BatteryOptima.Persistence.Migrations
 {
     [DbContext(typeof(ProductionOptimaContext))]
-    partial class ProductionOptimaContextModelSnapshot : ModelSnapshot
+    [Migration("20240516135643_producerremovecelldetail")]
+    partial class producerremovecelldetail
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
