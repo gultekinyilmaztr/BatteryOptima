@@ -14,13 +14,18 @@ namespace BatteryOptima.Application.Features.Mediator.Handlers.BatteryCellHandle
     {
         private readonly IBatteryCellRepository _repository;
 
+        public GetBatteryCellWithProducerQueryHandler(IBatteryCellRepository repository)
+        {
+            _repository = repository;
+        }
+
         public async Task<List<GetBatteryCellWithProducerQueryResult>> Handle(GetBatteryCellWithProducerQuery request, CancellationToken cancellationToken)
         {
             var values = _repository.GetBatteryCellsWithProducers();
             return values.Select(x => new GetBatteryCellWithProducerQueryResult
             {
                 ProducerId = x.ProducerId,
-                
+                ProducerName=x.Producer.ProducerName,
                 CellSerialNo = x.CellSerialNo,
                 InternalResistance = x.InternalResistance,
                 Voltage = x.Voltage,

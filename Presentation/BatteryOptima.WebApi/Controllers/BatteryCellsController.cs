@@ -1,4 +1,5 @@
 ﻿using BatteryOptima.Application.Features.Mediator.Commands.BatteryCellCommands;
+using BatteryOptima.Application.Features.Mediator.Handlers.BatteryCellHandlers;
 using BatteryOptima.Application.Features.Mediator.Queries.BatteryCellQueries;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -39,6 +40,13 @@ namespace BatteryOptima.WebApi.Controllers
         {
             await _mediator.Send(command);
             return Ok("Özellik başarıyla güncellendi");
+        }
+
+        [HttpGet("GetBatteryCellWithProducer")]
+        public async Task<IActionResult> GetBatteryCellWithProducer()
+        {
+            var values = await _mediator.Send(new GetBatteryCellWithProducerQuery());
+            return Ok(values);
         }
 
     }
