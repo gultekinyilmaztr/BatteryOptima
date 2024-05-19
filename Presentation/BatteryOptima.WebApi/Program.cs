@@ -6,9 +6,12 @@ using BatteryOptima.Persistence.Repositories.BatteryCellRepository;
 using ProductionOptima.Persistence.Context;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddHttpClient();
+
 
 // Add services to the container.
+builder.Services.AddControllersWithViews();
+builder.Services.AddHttpClient();
+
 builder.Services.AddScoped<ProductionOptimaContext>();
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped(typeof(IBatteryCellRepository), typeof(BatteryCellRepository));

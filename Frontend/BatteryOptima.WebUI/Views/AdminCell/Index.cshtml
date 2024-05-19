@@ -1,11 +1,10 @@
-﻿@using BatteryOptima.Dto.BatteryCellDtos
-@model List<ResultBatteryCellWithProducerDtos>
+﻿@model List<ResultBatteryCellWithProducerDtos>
 
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/CellDashboard/Index.cshtml";
+    int count = 0;
 }
-
 <div class="page-content">
     <div class="container-fluid">
         <div class="row">
@@ -35,21 +34,24 @@
                             <tbody>
                                 @foreach (var item in Model)
                                 {
-                                    
+                                    count++;
                                     <tr>
+                                        <th scope="row">@count</th>
                                         <td>@item.CellSerialNo</td>
                                         <td>@item.InternalResistance</td>
                                         <td>@item.Voltage</td>
                                         <td>@item.DateOfMesurementDate</td>
-                                        <td>@item.DateOfMesurementDate</td>
-
+                                        <td><a href="/AdminCell/RemoveCell/@item.BatteryCellId" class="btn btn-outline-danger">Sil</a></td>
+                                        <td><a href="/AdminCell/UpdateCell/@item.BatteryCellId" class="btn btn-outline-success">Güncelle</a></td>
+                                        <td><a href="/CellList/CarDetail/@item.BatteryCellId" class="btn btn-outline-dark">Detaylar</a></td>
                                     </tr>
                                 }
                             </tbody>
                         </table>
-                    </div> <!-- end card body-->
-                </div> <!-- end card -->
-            </div><!-- end col-->
+                        <a href="/AdminCell/CreateCell/" class="btn btn-outline-primary">Yeni Hücre Girişi</a>
+                    </div>
+                </div> 
+            </div>
         </div>
     </div>
 </div>

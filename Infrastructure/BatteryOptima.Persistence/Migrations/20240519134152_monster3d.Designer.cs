@@ -12,8 +12,8 @@ using ProductionOptima.Persistence.Context;
 namespace BatteryOptima.Persistence.Migrations
 {
     [DbContext(typeof(ProductionOptimaContext))]
-    [Migration("20240516135643_producerremovecelldetail")]
-    partial class producerremovecelldetail
+    [Migration("20240519134152_monster3d")]
+    partial class monster3d
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
