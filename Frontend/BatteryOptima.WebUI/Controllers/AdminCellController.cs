@@ -1,7 +1,9 @@
 ﻿using BatteryOptima.Dto.BatteryCellDtos;
+using BatteryOptima.Dto.ProducerDtos;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
+using System.Text;
 
 namespace BatteryOptima.WebUI.Controllers
 {
@@ -30,16 +32,30 @@ namespace BatteryOptima.WebUI.Controllers
         public async Task<IActionResult> CreateCell()
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("https://localhost:7258/api/BatteryCells");
+            var responseMessage = await client.GetAsync("https://localhost:7258/api/Producers");
             var jsonData = await responseMessage.Content.ReadAsStringAsync();
-            var values = JsonConvert.DeserializeObject<List<ResultBatteryCellDto>>(jsonData);
-            List<SelectListItem> batteryCellValues = (from x in values
+            var values = JsonConvert.DeserializeObject<List<ResultProcuderDto>>(jsonData);
+            List<SelectListItem> producerValues = (from x in values
                                                 select new SelectListItem
                                                 {
-                                                    Text = x.CellSerialNo,
-                                                    Value = x.BatteryCellId.ToString()
+                                                    Text = x.ProducerName,
+                                                    Value = x.ProducerId.ToString()
                                                 }).ToList();
-            ViewBag.BatteryCellValues = batteryCellValues;
+            ViewBag.ProducerValues = producerValues;
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateCell(CreateBatteryCellDto createBatteryCellDto)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var jsonData = JsonConvert.SerializeObject(createBatteryCellDto);
+            StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            var responseMessage = await client.PostAsync("https://localhost:7258/api/BatteryCells", stringContent);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
+            }
             return View();
         }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BatteryOptima.Dto.ProducerDtos
 {
-    public class ResultProcuderDtos
+    public class ResultProcuderDto
     {
         public int ProducerId { get; set; }
         public string ProducerName { get; set; }
