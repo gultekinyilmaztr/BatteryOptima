@@ -42,10 +42,10 @@ namespace BatteryOptima.WebApi.Controllers
             return Ok("Özellik başarıyla güncellendi");
         }
 
-        [HttpGet("GetBatteryCellWithProducer")]
-        public async Task<IActionResult> GetBatteryCellWithProducer()
+        [HttpGet("GetBatteryCellWithCellDetail")]
+        public async Task<IActionResult> GetBatteryCellWithDetail()
         {
-            var values = await _mediator.Send(new GetBatteryCellWithProducerQuery());
+            var values = await _mediator.Send(new GetBatteryCellWithCellDetailQuery());
             return Ok(values);
         }
 

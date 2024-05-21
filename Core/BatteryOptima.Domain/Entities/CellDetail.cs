@@ -11,10 +11,13 @@ namespace ProductionOptima.Domain.Entities
 
         public int CellDetailId { get; set; }
         public int BatteryCellId { get; set; }
+        public int ProducerId { get; set; }
+        public Producer Producer { get; set; }
         public BatteryCell BatteryCell { get; set; }
         public double TestIR { get; set; }
         public double TestVoltage { get; set; }
         public DateTime DateOfTest { get; set; }
+        public bool Available { get; set; }
 
     }
 }

@@ -14,6 +14,5 @@ namespace BatteryOptima.Application.Features.Mediator.Commands.ProducerCommands
         public string ProducerName { get; set; }
         public string ProducerCountry { get; set; }
         public int ProducerNo { get; set; }
-        public List<BatteryCell> BatteryCells { get; set; }
     }
 }

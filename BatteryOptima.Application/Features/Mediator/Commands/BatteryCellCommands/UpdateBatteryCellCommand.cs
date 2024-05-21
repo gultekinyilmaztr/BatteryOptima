@@ -14,9 +14,6 @@ namespace BatteryOptima.Application.Features.Mediator.Commands.BatteryCellComman
         public double InternalResistance { get; set; }
         public double Voltage { get; set; }
         public DateTime DateOfMesurementDate { get; set; }
-        public string Unit { get; set; }
-        public bool Statu { get; set; }
-        public int CellDetailId { get; set; }
-        public int ProducerId { get; set; }
+        public bool Available { get; set; }
     }
 }

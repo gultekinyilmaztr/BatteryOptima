@@ -19,9 +19,9 @@ namespace BatteryOptima.Persistence.Repositories.BatteryCellRepository
             _context = context;
         }
 
-        public List<BatteryCell> GetBatteryCellsWithProducers()
+        public List<BatteryCell> GetBatteryCellsWithCellDetails()
         {
-            var values = _context.BatteryCells.Include(x => x.Producer).ToList();
+            var values = _context.BatteryCells.Include(x => x.CellDetails).ToList();
             return values;
         }
     }

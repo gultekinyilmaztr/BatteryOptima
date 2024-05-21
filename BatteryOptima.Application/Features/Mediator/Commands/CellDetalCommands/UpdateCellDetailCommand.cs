@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using ProductionOptima.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +11,10 @@ namespace BatteryOptima.Application.Features.Mediator.Commands.BatteryCellComman
     public class UpdateCellDetailCommand : IRequest
     {
         public int CellDetailId { get; set; }
+        public int BatteryCellId { get; set; }
+        public int ProducerId { get; set; }
         public double TestIR { get; set; }
         public double TestVoltage { get; set; }
         public DateTime DateOfTest { get; set; }
-        public int CellId { get; set; }
     }
 }

@@ -3,7 +3,7 @@ using MediatR;
 
 namespace BatteryOptima.Application.Features.Mediator.Queries.BatteryCellQueries
 {
-    public class GetBatteryCellWithProducerQuery : IRequest<List<GetBatteryCellWithProducerQueryResult>>
+    public class GetBatteryCellWithCellDetailQuery : IRequest<List<GetBatteryCellWithCellDetailQueryResult>>
     {
     }
 }

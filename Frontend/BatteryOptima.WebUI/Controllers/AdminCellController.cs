@@ -23,7 +23,7 @@ namespace BatteryOptima.WebUI.Controllers
             if(responseMessage.IsSuccessStatusCode)
             {
                 var jsonData=await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<List<ResultBatteryCellWithProducerDtos>>(jsonData);
+                var values = JsonConvert.DeserializeObject<List<ResultBatteryCellWithCellDetailDtos>>(jsonData);
                 return View(values);
             }
             return View();

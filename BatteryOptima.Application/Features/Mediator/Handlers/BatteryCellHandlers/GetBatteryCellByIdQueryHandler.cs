@@ -23,10 +23,10 @@ namespace BatteryOptima.Application.Features.Mediator.Handlers.BatteryCellHandle
                 BatteryCellId = values.BatteryCellId,
                 CellSerialNo = values.CellSerialNo,
                 InternalResistance = values.InternalResistance,
-                Voltage=values.Voltage,
+                Voltage = values.Voltage,
                 DateOfMesurementDate = values.DateOfMesurementDate,
-                Unit=values.Unit,
-                Statu=values.Statu,
+                Available = values.Available,
+
 
             };
 

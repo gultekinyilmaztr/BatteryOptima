@@ -10,28 +10,25 @@ using System.Threading.Tasks;
 
 namespace BatteryOptima.Application.Features.Mediator.Handlers.BatteryCellHandlers
 {
-    public class GetBatteryCellWithProducerQueryHandler : IRequestHandler<GetBatteryCellWithProducerQuery, List<GetBatteryCellWithProducerQueryResult>>
+    public class GetBatteryCellWithCellDetailQueryHandler : IRequestHandler<GetBatteryCellWithCellDetailQuery, List<GetBatteryCellWithCellDetailQueryResult>>
     {
         private readonly IBatteryCellRepository _repository;
 
-        public GetBatteryCellWithProducerQueryHandler(IBatteryCellRepository repository)
+        public GetBatteryCellWithCellDetailQueryHandler(IBatteryCellRepository repository)
         {
             _repository = repository;
         }
 
-        public async Task<List<GetBatteryCellWithProducerQueryResult>> Handle(GetBatteryCellWithProducerQuery request, CancellationToken cancellationToken)
+        public async Task<List<GetBatteryCellWithCellDetailQueryResult>> Handle(GetBatteryCellWithCellDetailQuery request, CancellationToken cancellationToken)
         {
-            var values = _repository.GetBatteryCellsWithProducers();
-            return values.Select(x => new GetBatteryCellWithProducerQueryResult
+            var values = _repository.GetBatteryCellsWithCellDetails();
+            return values.Select(x => new GetBatteryCellWithCellDetailQueryResult
             {
-                ProducerId = x.ProducerId,
-                ProducerName=x.Producer.ProducerName,
                 CellSerialNo = x.CellSerialNo,
                 InternalResistance = x.InternalResistance,
                 Voltage = x.Voltage,
                 DateOfMesurementDate = x.DateOfMesurementDate,
-                Unit = x.Unit,
-                Statu = x.Statu,
+                Available= x.Available
             }).ToList();
         }
     }

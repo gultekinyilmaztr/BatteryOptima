@@ -28,9 +28,8 @@ namespace BatteryOptima.Application.Features.Mediator.Handlers.BatteryCellHandle
                 InternalResistance = request.InternalResistance,
                 Voltage=request.Voltage,
                 DateOfMesurementDate = request.DateOfMesurementDate,
-                Unit=request.Unit,
-                Statu=request.Statu,
-
+                Available = request.Available,
+                
             });
 
         }

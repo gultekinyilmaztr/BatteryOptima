@@ -15,6 +15,11 @@ namespace BatteryOptima.Application.Features.Mediator.Handlers.ProducerHandlers
     {
         private readonly IRepository<Producer> _repository;
 
+        public RemoveProducerCommandHandler(IRepository<Producer> repository)
+        {
+            _repository = repository;
+        }
+
         public async Task Handle(RemoveProducerCommand request, CancellationToken cancellationToken)
         {
             var value = await _repository.GetByIdAsync(request.Id);

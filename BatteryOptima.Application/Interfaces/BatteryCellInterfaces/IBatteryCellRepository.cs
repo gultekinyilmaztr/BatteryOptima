@@ -10,6 +10,6 @@ namespace BatteryOptima.Application.Interfaces.BatteryCellInterfaces
 {
     public interface IBatteryCellRepository
     {
-        List<BatteryCell> GetBatteryCellsWithProducers();
+        List<BatteryCell> GetBatteryCellsWithCellDetails();
     }
 }
