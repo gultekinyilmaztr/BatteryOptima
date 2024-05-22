@@ -19,6 +19,12 @@ namespace BatteryOptima.Persistence.Repositories.BatteryCellRepository
             _context = context;
         }
 
+        public int GetCellCount()
+        {
+            var value = _context.BatteryCells.Count();
+            return value;
+        }
+
         public List<BatteryCell> GetBatteryCellsWithCellDetails()
         {
             var values = _context.BatteryCells.Include(x => x.CellDetails).ToList();

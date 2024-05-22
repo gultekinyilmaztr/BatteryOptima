@@ -10,7 +10,6 @@ namespace BatteryOptima.Dto.BatteryCellDtos
     {
         public int BatteryCellId { get; set; }
         public string CellSerialNo { get; set; }
-        public int CellDetailId { get; set; }
         public double InternalResistance { get; set; }
         public double Voltage { get; set; }
         public DateTime DateOfMesurementDate { get; set; }

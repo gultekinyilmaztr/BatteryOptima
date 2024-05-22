@@ -8,7 +8,6 @@ namespace ProductionOptima.Domain.Entities
 {
     public class CellDetail
     {
-
         public int CellDetailId { get; set; }
         public int BatteryCellId { get; set; }
         public int ProducerId { get; set; }

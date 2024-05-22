@@ -11,5 +11,6 @@ namespace BatteryOptima.Application.Interfaces.BatteryCellInterfaces
     public interface IBatteryCellRepository
     {
         List<BatteryCell> GetBatteryCellsWithCellDetails();
+        int GetCellCount();
     }
 }

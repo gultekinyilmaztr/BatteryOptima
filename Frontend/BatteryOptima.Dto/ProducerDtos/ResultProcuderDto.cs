@@ -10,7 +10,6 @@ namespace BatteryOptima.Dto.ProducerDtos
     {
         public int ProducerId { get; set; }
         public string ProducerName { get; set; }
-        public string ProducerCountry { get; set; }
-        public int ProducerNo { get; set; }
+
     }
 }

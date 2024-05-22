@@ -18,9 +18,5 @@ namespace ProductionOptima.Domain.Entities
         public List<CellDetail> CellDetails { get; set; }
         
 
-
-
-
-
     }
 }
