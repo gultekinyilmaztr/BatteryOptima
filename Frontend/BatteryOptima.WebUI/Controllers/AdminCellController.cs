@@ -70,6 +70,48 @@ namespace BatteryOptima.WebUI.Controllers
             return View();
         }
 
+        [HttpGet]
+        public async Task<IActionResult> UpdateCell(int id)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage1 = await client.GetAsync("https://localhost:7258/api/Producers");
+            var jsonData1 = await responseMessage1.Content.ReadAsStringAsync();
+            var values1 = JsonConvert.DeserializeObject<List<ResultProcuderDto>>(jsonData1);
+            List<SelectListItem> producerValues = (from x in values1
+                                                   select new SelectListItem
+                                                   {
+                                                       Text = x.ProducerName,
+                                                       Value = x.ProducerId.ToString()
+                                                   }).ToList();
+            ViewBag.ProducerValues = producerValues;
+            return View();
+
+            var responseMessage = await client.GetAsync($"https://localhost:7258/api/BatteryCells/{id}");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsonData=await responseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<UpdateBatteryCellDto>(jsonData);
+                return View(values);
+            }
+            return View();
+        }
+
+        [HttpPost]
+
+        public async Task<IActionResult> UpdateCell(UpdateBatteryCellDto updateBatteryCellDto)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var jsonData = JsonConvert.SerializeObject(updateBatteryCellDto);
+            StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            var responseMaessage = await client.PutAsync("https://localhost:7258/api/BatteryCells/", stringContent);
+            if(responseMaessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("index");
+            }
+            return View();
+
+        }
+
 
     }
 }

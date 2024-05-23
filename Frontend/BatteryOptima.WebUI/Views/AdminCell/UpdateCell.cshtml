@@ -1,0 +1,48 @@
+﻿@model UpdateBatteryCellDto
+@{
+    ViewData["Title"] = "UpdateCell";
+    Layout = "~/Views/CellDashboard/Index.cshtml";
+}
+
+<div class="page-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Hücre Güncelleme Sayfası</h4>
+                        <p class="card-subtitle mb-4">Hücre ile ilgili temel bilgileri eksiksiz doldurmanız önemlidir. Veri girişlerinden sonra kaydet butonuna tıklayarak güncelleme işlemini tamamlayabilirsiniz.</p>
+                        <form method="post">
+                            <input type="hidden" asp-for="BatteryCellId"/>
+                            <div class="form-group">
+                                <label for="exampleInputSerialNo">Seri Numarası</label>
+                                <input type="text" class="form-control" id="exampleInputSerialNo" asp-for="CellSerialNo" placeholder="Seri Numarası Girişi Yapınız">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputIR">İç Değer</label>
+                                <input type="text" class="form-control" id="exampleInputIR" asp-for="InternalResistance" placeholder="İç Değer Bilgisi Giriniz">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputVoltage">Gerilim</label>
+                                <input type="text" class="form-control" id="exampleInputVoltaj" asp-for="Voltage" placeholder="Gerilim Bilgisini Yazınız">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputDate">Fabrika Ölçüm Tarihi</label>
+                                <input type="date" class="form-control" id="exampleInputDate" asp-for="DateOfMesurementDate" placeholder="Fabrika Ölçüm Tarihini Giriniz.">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputAvailable">Kullanım </label>
+                                <input type="text" class="form-control" id="exampleInputFuel" asp-for="Available" placeholder="Kullanım Durumu Giriniz">
+                            </div>
+
+                            <button type="submit" class="btn btn-primary waves-effect waves-light">Hücreyi Kaydet</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
