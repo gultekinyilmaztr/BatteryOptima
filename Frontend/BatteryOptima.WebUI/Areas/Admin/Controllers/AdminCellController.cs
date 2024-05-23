@@ -5,8 +5,9 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
 using System.Text;
 
-namespace BatteryOptima.WebUI.Controllers
+namespace BatteryOptima.WebUI.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class AdminCellController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
@@ -20,9 +21,9 @@ namespace BatteryOptima.WebUI.Controllers
         {
             var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync("https://localhost:7258/api/BatteryCells/GetBatteryCellWithCellDetail");
-            if(responseMessage.IsSuccessStatusCode)
+            if (responseMessage.IsSuccessStatusCode)
             {
-                var jsonData=await responseMessage.Content.ReadAsStringAsync();
+                var jsonData = await responseMessage.Content.ReadAsStringAsync();
                 var values = JsonConvert.DeserializeObject<List<ResultBatteryCellWithCellDetailDtos>>(jsonData);
                 return View(values);
             }
@@ -36,11 +37,11 @@ namespace BatteryOptima.WebUI.Controllers
             var jsonData = await responseMessage.Content.ReadAsStringAsync();
             var values = JsonConvert.DeserializeObject<List<ResultProcuderDto>>(jsonData);
             List<SelectListItem> producerValues = (from x in values
-                                                select new SelectListItem
-                                                {
-                                                    Text = x.ProducerName,
-                                                    Value = x.ProducerId.ToString()
-                                                }).ToList();
+                                                   select new SelectListItem
+                                                   {
+                                                       Text = x.ProducerName,
+                                                       Value = x.ProducerId.ToString()
+                                                   }).ToList();
             ViewBag.ProducerValues = producerValues;
             return View();
         }
@@ -62,7 +63,7 @@ namespace BatteryOptima.WebUI.Controllers
         public async Task<IActionResult> RemoveBatteryCell(int id)
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.DeleteAsync($"https://localhost:7258/api/BatteryCells/{id}" );
+            var responseMessage = await client.DeleteAsync($"https://localhost:7258/api/BatteryCells/{id}");
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");
@@ -89,7 +90,7 @@ namespace BatteryOptima.WebUI.Controllers
             var responseMessage = await client.GetAsync($"https://localhost:7258/api/BatteryCells/{id}");
             if (responseMessage.IsSuccessStatusCode)
             {
-                var jsonData=await responseMessage.Content.ReadAsStringAsync();
+                var jsonData = await responseMessage.Content.ReadAsStringAsync();
                 var values = JsonConvert.DeserializeObject<UpdateBatteryCellDto>(jsonData);
                 return View(values);
             }
@@ -104,7 +105,7 @@ namespace BatteryOptima.WebUI.Controllers
             var jsonData = JsonConvert.SerializeObject(updateBatteryCellDto);
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
             var responseMaessage = await client.PutAsync("https://localhost:7258/api/BatteryCells/", stringContent);
-            if(responseMaessage.IsSuccessStatusCode)
+            if (responseMaessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("index");
             }
