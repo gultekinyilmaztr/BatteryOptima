@@ -8,6 +8,8 @@ using System.Text;
 namespace BatteryOptima.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Route("Admin/AdminCell")]
+
     public class AdminCellController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
@@ -17,6 +19,7 @@ namespace BatteryOptima.WebUI.Areas.Admin.Controllers
             _httpClientFactory = httpClientFactory;
         }
 
+        [Route("Index")]
         public async Task<IActionResult> Index()
         {
             var client = _httpClientFactory.CreateClient();
@@ -29,7 +32,8 @@ namespace BatteryOptima.WebUI.Areas.Admin.Controllers
             }
             return View();
         }
-        [HttpGet]
+
+        [Route("CreateCell")]
         public async Task<IActionResult> CreateCell()
         {
             var client = _httpClientFactory.CreateClient();
@@ -47,6 +51,7 @@ namespace BatteryOptima.WebUI.Areas.Admin.Controllers
         }
 
         [HttpPost]
+        [Route("CreateCell")]
         public async Task<IActionResult> CreateCell(CreateBatteryCellDto createBatteryCellDto)
         {
             var client = _httpClientFactory.CreateClient();
@@ -55,11 +60,12 @@ namespace BatteryOptima.WebUI.Areas.Admin.Controllers
             var responseMessage = await client.PostAsync("https://localhost:7258/api/BatteryCells", stringContent);
             if (responseMessage.IsSuccessStatusCode)
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "AdminCell", new { area = "Admin" });
             }
             return View();
         }
 
+        [Route("RemoveBatteryCell/{id}")]
         public async Task<IActionResult> RemoveBatteryCell(int id)
         {
             var client = _httpClientFactory.CreateClient();
@@ -72,6 +78,7 @@ namespace BatteryOptima.WebUI.Areas.Admin.Controllers
         }
 
         [HttpGet]
+        [Route("UpdateCell/{id}")]
         public async Task<IActionResult> UpdateCell(int id)
         {
             var client = _httpClientFactory.CreateClient();
@@ -98,7 +105,7 @@ namespace BatteryOptima.WebUI.Areas.Admin.Controllers
         }
 
         [HttpPost]
-
+        [Route("UpdateCell/{id}")]
         public async Task<IActionResult> UpdateCell(UpdateBatteryCellDto updateBatteryCellDto)
         {
             var client = _httpClientFactory.CreateClient();
@@ -107,12 +114,9 @@ namespace BatteryOptima.WebUI.Areas.Admin.Controllers
             var responseMaessage = await client.PutAsync("https://localhost:7258/api/BatteryCells/", stringContent);
             if (responseMaessage.IsSuccessStatusCode)
             {
-                return RedirectToAction("index");
+                return RedirectToAction("Index", "AdminCell", new { area = "Admin" });
             }
             return View();
-
         }
-
-
     }
 }

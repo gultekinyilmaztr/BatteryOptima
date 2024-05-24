@@ -24,11 +24,12 @@ namespace BatteryOptima.Application.Features.Mediator.Handlers.BatteryCellHandle
             var values = _repository.GetBatteryCellsWithCellDetails();
             return values.Select(x => new GetBatteryCellWithCellDetailQueryResult
             {
+                BatteryCellId = x.BatteryCellId,
                 CellSerialNo = x.CellSerialNo,
                 InternalResistance = x.InternalResistance,
                 Voltage = x.Voltage,
                 DateOfMesurementDate = x.DateOfMesurementDate,
-                Available= x.Available
+                Available = x.Available
             }).ToList();
         }
     }

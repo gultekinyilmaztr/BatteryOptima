@@ -14,8 +14,8 @@
                         <h4 class="card-title">Hücre Listesi</h4>
                         <p class="card-subtitle mb-4">
                             Hücreler ile ilgili detayları bu sayfadan inceleyebilir veya değiştirebilirsiniz.
-                            function:
-                            <code>$().DataTable();</code>.
+                    @*         function:
+                            <code>$().DataTable();</code>. *@
                         </p>
 
                         <table id="basic-datatable" class="table dt-responsive nowrap">
@@ -44,14 +44,14 @@
                                         <td>@item.Available</td>
                                         <td><a href="/Admin/AdminCell/RemoveBatteryCell/@item.BatteryCellId" class="btn btn-outline-danger">Sil</a></td>
                                         <td><a href="/Admin/AdminCell/UpdateCell/@item.BatteryCellId" class="btn btn-outline-success">Güncelle</a></td>
-                                        <td><a href="/Admin/CellList/CarDetail/@item.BatteryCellId" class="btn btn-outline-dark">Detaylar</a></td>
+                                        <td><a href="/Admin/AdminCell/AdminCellDetail/@item.BatteryCellId" class="btn btn-outline-dark">Detaylar</a></td>
                                     </tr>
                                 }
                             </tbody>
                         </table>
                         <a href="/Admin/AdminCell/CreateCell" class="btn btn-outline-primary">Yeni Hücre Girişi</a>
                     </div>
-                </div> 
+                </div>
             </div>
         </div>
     </div>
