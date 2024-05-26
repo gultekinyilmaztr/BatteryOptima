@@ -10,6 +10,7 @@ namespace BatteryOptima.Application.Features.Mediator.Results.CellDetailResults
     {
         public int CellDetailId { get; set; }
         public int BatteryCellId { get; set; }
+        public string CellSerialNo { get; set; }
         public double TestIR { get; set; }
         public double TestVoltage { get; set; }
         public DateTime DateOfTest { get; set; }

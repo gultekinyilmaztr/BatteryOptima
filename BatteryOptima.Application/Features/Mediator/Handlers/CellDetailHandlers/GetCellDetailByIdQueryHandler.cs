@@ -13,7 +13,8 @@ using System.Threading.Tasks;
 
 namespace BatteryOptima.Application.Features.Mediator.Handlers.CellDetailHandlers
 {
-    public class GetCellDetailByIdQueryHandler : IRequestHandler<GetCellDetailByIdQuery, GetCellDetailByIdQueryResult>
+    public class GetCellDetailByIdQueryHandler : IRequestHandler<GetCellDetailByIdQuery, 
+        GetCellDetailByIdQueryResult>
     {
         private readonly IRepository<CellDetail> _repository;
 
@@ -22,15 +23,18 @@ namespace BatteryOptima.Application.Features.Mediator.Handlers.CellDetailHandler
             _repository = repository;
         }
 
-        public async Task<GetCellDetailByIdQueryResult> Handle(GetCellDetailByIdQuery request, CancellationToken cancellationToken)
+        public async Task<GetCellDetailByIdQueryResult> Handle(GetCellDetailByIdQuery request, 
+            CancellationToken cancellationToken)
         {
             var values = await _repository.GetByIdAsync(request.Id);
             return new GetCellDetailByIdQueryResult
             {
                 CellDetailId = values.CellDetailId,
+                CellSerialNo=values.BatteryCell.CellSerialNo,
                 TestIR=values.TestIR,
                 TestVoltage=values.TestVoltage,
                 DateOfTest=values.DateOfTest,
+                Available=values.Available,
             };
         }
     }
