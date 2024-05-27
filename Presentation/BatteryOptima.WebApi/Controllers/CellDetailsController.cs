@@ -17,12 +17,21 @@ namespace BatteryOptima.WebApi.Controllers
         {
             _mediator = mediator;
         }
+        //[HttpGet]
+        //public async Task<IActionResult> CellDetailList()
+        //{
+        //    var values = await _mediator.Send(new GetCellDetailQuery());
+        //    return Ok(values);
+        //}
+
         [HttpGet]
-        public async Task<IActionResult> CellDetailList()
+        public async Task<IActionResult> CellDetailListByCellId(int id)
         {
-            var values = await _mediator.Send(new GetCellDetailQuery());
+            var values = await _mediator.Send(new GetCellDetailByCellIdQuery(id));
             return Ok(values);
         }
+
+
         [HttpPost]
         public async Task<IActionResult> CreateCellDetail(CreateCellDetailCommand command)
         {

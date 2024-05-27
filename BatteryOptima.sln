@@ -21,7 +21,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontends", "Frontends", "{
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BatteryOptima.WebUI", "Frontend\BatteryOptima.WebUI\BatteryOptima.WebUI.csproj", "{8BEE62FB-3EA7-43E4-A86F-0165AE99AF74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BatteryOptima.Dto", "Frontend\BatteryOptima.Dto\BatteryOptima.Dto.csproj", "{52D2DA1F-85D1-42AE-B746-1B7E36746C97}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BatteryOptima.Dto", "Frontend\BatteryOptima.Dto\BatteryOptima.Dto.csproj", "{52D2DA1F-85D1-42AE-B746-1B7E36746C97}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

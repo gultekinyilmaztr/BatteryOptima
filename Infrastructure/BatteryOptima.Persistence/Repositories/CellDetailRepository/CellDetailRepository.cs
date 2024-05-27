@@ -1,6 +1,7 @@
 ﻿using BatteryOptima.Application.Interfaces;
 using BatteryOptima.Application.Interfaces.CellDetailInterfaces;
 using ProductionOptima.Domain.Entities;
+using ProductionOptima.Persistence.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +12,17 @@ namespace BatteryOptima.Persistence.Repositories.CellDetailRepository
 {
     public class CellDetailRepository : ICellDetailRepository
     {
-        private readonly IRepository<CellDetail> _repository;
+        private readonly ProductionOptimaContext _context;
+
+        public CellDetailRepository(ProductionOptimaContext context)
+        {
+            _context = context;
+        }
+
         public List<CellDetail> GetCellDetailByCellID(int cellID)
         {
-            throw new NotImplementedException();
+            var values = _context.CellDetails.Where(x=>x.BatteryCellId==cellID).ToList();
+            return values;
         }
     }
 }

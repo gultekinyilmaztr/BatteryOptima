@@ -1,8 +1,10 @@
 using BatteryOptima.Application.Interfaces;
 using BatteryOptima.Application.Interfaces.BatteryCellInterfaces;
+using BatteryOptima.Application.Interfaces.CellDetailInterfaces;
 using BatteryOptima.Application.Services;
 using BatteryOptima.Persistence.Repositories;
 using BatteryOptima.Persistence.Repositories.BatteryCellRepository;
+using BatteryOptima.Persistence.Repositories.CellDetailRepository;
 using ProductionOptima.Persistence.Context;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +17,7 @@ builder.Services.AddHttpClient();
 builder.Services.AddScoped<ProductionOptimaContext>();
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped(typeof(IBatteryCellRepository), typeof(BatteryCellRepository));
+builder.Services.AddScoped(typeof(ICellDetailRepository), typeof(CellDetailRepository));
 
 
 builder.Services.AddApplicationService(builder.Configuration);
