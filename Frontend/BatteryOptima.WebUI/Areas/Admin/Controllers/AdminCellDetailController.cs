@@ -7,7 +7,7 @@ namespace BatteryOptima.WebUI.Areas.Admin.Controllers
 {
 
     [Area("Admin")]
-    [Route("Admin/AdminCellDetail")]
+    //[Route("Admin/AdminCellDetail")]
     public class AdminCellDetailController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
@@ -17,7 +17,8 @@ namespace BatteryOptima.WebUI.Areas.Admin.Controllers
             _httpClientFactory = httpClientFactory;
         }
 
-        [Route("Index/{id}")]
+        //[Route("Index/{id}")]
+        [HttpGet]
         public async Task<IActionResult> Index(int id)
         {
             var client = _httpClientFactory.CreateClient();

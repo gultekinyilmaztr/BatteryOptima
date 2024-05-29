@@ -11,12 +11,10 @@ namespace ProductionOptima.Domain.Entities
     {
         public int BatteryCellId { get; set; }
         public string CellSerialNo { get; set; }
-        public double InternalResistance  { get; set; }
-        public double Voltage  { get; set; }
-        public DateTime DateOfMesurementDate   { get; set; }
+        public double InternalResistance { get; set; }
+        public double Voltage { get; set; }
+        public DateTime DateOfMesurementDate { get; set; }
         public bool Available { get; set; }
         public List<CellDetail> CellDetails { get; set; }
-        
-
     }
 }

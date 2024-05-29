@@ -9,6 +9,6 @@ namespace BatteryOptima.Application.Interfaces.CellDetailInterfaces
 {
     public interface ICellDetailRepository
     {
-        List<CellDetail> GetCellDetailByCellID(int cellID);
+        Task<List<CellDetail>> GetCellDetailByCellID(int cellID);
     }
 }

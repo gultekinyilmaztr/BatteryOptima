@@ -1,5 +1,6 @@
 ﻿using BatteryOptima.Application.Interfaces;
 using BatteryOptima.Application.Interfaces.CellDetailInterfaces;
+using Microsoft.EntityFrameworkCore;
 using ProductionOptima.Domain.Entities;
 using ProductionOptima.Persistence.Context;
 using System;
@@ -19,9 +20,9 @@ namespace BatteryOptima.Persistence.Repositories.CellDetailRepository
             _context = context;
         }
 
-        public List<CellDetail> GetCellDetailByCellID(int cellID)
+        public async Task<List<CellDetail>> GetCellDetailByCellID(int cellID)
         {
-            var values = _context.CellDetails.Where(x=>x.BatteryCellId==cellID).ToList();
+            var values = await _context.CellDetails.Include(x => x.BatteryCell).Include(x => x.Producer).Where(x => x.BatteryCellId == cellID).ToListAsync();
             return values;
         }
     }

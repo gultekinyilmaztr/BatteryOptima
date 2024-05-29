@@ -16,5 +16,6 @@ namespace BatteryOptima.Dto.CellDetailDtos
         public double TestVoltage { get; set; }
         public DateTime DateOfTest { get; set; }
         public bool Available { get; set; }
+        public int BatteryCellId { get; set; }
     }
 }

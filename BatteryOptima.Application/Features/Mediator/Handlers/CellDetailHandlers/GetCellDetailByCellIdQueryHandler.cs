@@ -15,12 +15,18 @@ namespace BatteryOptima.Application.Features.Mediator.Handlers.CellDetailHandler
 
         public async Task<List<GetCellDetailByCellIdQueryResult>> Handle(GetCellDetailByCellIdQuery request, CancellationToken cancellationToken)
         {
-            var values = _repository.GetCellDetailByCellID(request.Id);
+            var values = await _repository.GetCellDetailByCellID(request.Id);
             return values.Select(x => new GetCellDetailByCellIdQueryResult
             {
-                Available=x.Available,
-                CellDetailId=x.CellDetailId,
-                CellSerialNo = x.BatteryCell.CellSerialNo
+                CellDetailId = x.CellDetailId,
+                CellSerialNo = x.BatteryCell.CellSerialNo,
+                ProducerId = x.Producer.ProducerId,
+                ProducerName = x.Producer.ProducerName,
+                TestIR = x.TestIR,
+                TestVoltage = x.TestVoltage,
+                DateOfTest = x.DateOfTest,
+                Available = x.Available,
+                BatteryCellId = x.BatteryCell.BatteryCellId
             }).ToList();
         }
     }

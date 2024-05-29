@@ -14,7 +14,7 @@
                         <h4 class="card-title">Hücre Listesi</h4>
                         <p class="card-subtitle mb-4">
                             Hücreler ile ilgili detayları bu sayfadan inceleyebilir veya değiştirebilirsiniz.
-                    @*         function:
+                            @*         function:
                             <code>$().DataTable();</code>. *@
                         </p>
 
@@ -44,7 +44,7 @@
                                         <td>@item.Available</td>
                                         <td><a href="/Admin/AdminCell/RemoveBatteryCell/@item.BatteryCellId" class="btn btn-outline-danger">Sil</a></td>
                                         <td><a href="/Admin/AdminCell/UpdateCell/@item.BatteryCellId" class="btn btn-outline-success">Güncelle</a></td>
-                                        <td><a href="/Admin/AdminCell/AdminCellDetail/@item.BatteryCellId" class="btn btn-outline-dark">Detaylar</a></td>
+                                        <td><a href="/Admin/AdminCellDetail/Index?id=@item.BatteryCellId" class="btn btn-outline-dark">Detaylar</a></td>
                                     </tr>
                                 }
                             </tbody>
