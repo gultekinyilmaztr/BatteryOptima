@@ -20,7 +20,7 @@ namespace BatteryOptima.Application.Features.Mediator.Handlers.CellDetailHandler
             {
                 Available=x.Available,
                 CellDetailId=x.CellDetailId,
-                BatteryCellId=x.BatteryCellId,
+                CellSerialNo = x.BatteryCell.CellSerialNo
             }).ToList();
         }
     }

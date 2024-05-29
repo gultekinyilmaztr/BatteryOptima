@@ -1,8 +1,13 @@
-﻿
+﻿@model List<ResultCellDetailByCellIdDto>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/CellDashboard/Index.cshtml";
 }
 
-<h1>Index</h1>
+@foreach(var item in Model)
+{
+    <p>@item.CellDetailId</p>  
+}
+
+
 
