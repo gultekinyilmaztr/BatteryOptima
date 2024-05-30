@@ -9,39 +9,53 @@
 <div class="page-content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12">
+            <div class="col-xl-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Hücre Listesi</h4>
+                        <h4 class="card-title">Hücreye Ait Özellikler Listesi</h4>
                         <p class="card-subtitle mb-4">
-                            Hücreler ile ilgili detayları bu sayfadan inceleyebilir veya değiştirebilirsiniz.
-                            @*         function:
-                            <code>$().DataTable();</code>. *@
+                            Hücreye ait detay eklemesi yapabilir,mevcut detaylar kaldırabilir, ilgili güncellemeleri gerçekleştirebilirsiniz.
                         </p>
+                        <form method="post">
+                            @for (int i = 0; i < Model.Count; i++)
+                            {
+                                <div class="form-check">
+                                    <input type="hidden" asp-for="@Model[i].CellDetailId" />
+                                    <input type="hidden" asp-for="@Model[i].CellSerialNo" />
+                                    <input type="hidden" asp-for="@Model[i].TestIR" />
+                                    <input type="hidden" asp-for="@Model[i].TestVoltage" />
+                                    <input type="hidden" asp-for="@Model[i].DateOfTest" />
+                                    <input type="hidden" asp-for="@Model[i].ProducerName" />
 
-                        <table id="basic-datatable" class="table dt-responsive nowrap">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Battery Cell ID</th>
-                                    <th>Detaylar</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var item in Model)
-                                {
-                                    count++;
-                                    <tr>
-                                        <th scope="row">@count</th>
-                                        <td>@item.BatteryCellId</td>
-                                        <td><a href="/Admin/AdminCell/RemoveBatteryCell/@item.BatteryCellId" class="btn btn-outline-danger">Sil</a></td>
-                                        <td><a href="/Admin/AdminCell/UpdateCell/@item.BatteryCellId" class="btn btn-outline-success">Güncelle</a></td>
-                                        <td><a href="/Admin/AdminCellDetail/Index?id=@item.BatteryCellId" class="btn btn-outline-dark">Detaylar</a></td>
-                                    </tr>
-                                }
-                            </tbody>
-                        </table>
-                        <a href="/Admin/AdminCell/CreateCell" class="btn btn-outline-primary">Yeni Hücre Girişi</a>
+                                    <div class="form-check-label">
+                                        <label style="display:block;">
+                                            <input type="checkbox" asp-for="@Model[i].Available" class="form-check-input" id="CellSerialNo_@i" />
+                                            Hücre Seri Numarası: @Model[i].CellSerialNo
+                                        </label>
+                                        <label style="display:block;">
+                                            <input type="checkbox" asp-for="@Model[i].Available" class="form-check-input" id="TestIR_@i" />
+                                            İç Direnç Değeri: @Model[i].TestIR
+                                        </label>
+                                        <label style="display:block;">
+                                            <input type="checkbox" asp-for="@Model[i].Available" class="form-check-input" id="TestVoltage_@i" />
+                                            Gerilim Değeri: @Model[i].TestVoltage
+                                        </label>
+                                        <label style="display:block;">
+                                            <input type="checkbox" asp-for="@Model[i].Available" class="form-check-input" id="DateOfTest_@i" />
+                                            Test Tarihi: @Model[i].DateOfTest
+                                        </label>
+                                        <label style="display:block;">
+                                            <input type="checkbox" asp-for="@Model[i].Available" class="form-check-input" id="ProducerName_@i" />
+                                            Üretici Firma: @Model[i].ProducerName
+                                        </label>
+                                    </div>
+                                </div>
+                            }
+                            <br />
+                            <button class="btn btn-success">Değişiklikleri Kaydet</button>
+                        </form>
+
+
                     </div>
                 </div>
             </div>

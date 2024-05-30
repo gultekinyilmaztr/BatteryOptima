@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BatteryOptima.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,8 @@ namespace ProductionOptima.Domain.Entities
         public BatteryCell BatteryCell { get; set; }
         public int ProducerId { get; set; }
         public Producer Producer { get; set; }
+        //public int FeatureID { get; set; }
+        //public Feature Feature { get; set; }
         public double TestIR { get; set; }
         public double TestVoltage { get; set; }
         public DateTime DateOfTest { get; set; }

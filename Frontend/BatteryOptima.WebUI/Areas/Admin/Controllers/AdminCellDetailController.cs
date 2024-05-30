@@ -2,6 +2,7 @@
 using BatteryOptima.Dto.CellDetailDtos;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System.Text;
 
 namespace BatteryOptima.WebUI.Areas.Admin.Controllers
 {
@@ -30,6 +31,30 @@ namespace BatteryOptima.WebUI.Areas.Admin.Controllers
                 return View(values);
             }
             return View();
+        }
+
+        [HttpPost]
+        [Route("Index")]
+
+        public async Task<IActionResult> Index(List<ResultCellDetailByCellIdDto> resultCellDetailByCellIdDto)
+        {
+            foreach (var item in resultCellDetailByCellIdDto)
+            {
+                if (item.Available)
+                {
+                    var client = _httpClientFactory.CreateClient();
+                    var jsonData = JsonConvert.SerializeObject(resultCellDetailByCellIdDto);
+                    StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
+                    await client.PutAsync("https://localhost:7258/api/BatteryCells/", stringContent);
+                    return RedirectToAction("Index", "AdminCell");
+                }
+                else
+                {
+
+                }
+            }
+            return View();
+
         }
     }
 }
