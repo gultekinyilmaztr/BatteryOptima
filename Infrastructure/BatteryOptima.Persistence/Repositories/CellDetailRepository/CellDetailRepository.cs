@@ -20,6 +20,26 @@ namespace BatteryOptima.Persistence.Repositories.CellDetailRepository
             _context = context;
         }
 
+        public void ChangeCellDetailAvailableToFalse(int id)
+        {
+            var values = _context.CellDetails.Where(x=> x.CellDetailId == id).FirstOrDefault();
+            values.Available = false;
+            _context.SaveChanges();
+        }
+
+        public void ChangeCellDetailAvailableToTrue(int id)
+        {
+            var values = _context.CellDetails.Where(x => x.CellDetailId == id).FirstOrDefault();
+            values.Available = true;
+            _context.SaveChanges();
+        }
+
+        public void CreateCellDetailByCell(CellDetail cellDetail)
+        {
+            _context.CellDetails.Add(cellDetail);
+            _context.SaveChanges();
+        }
+
         public async Task<List<CellDetail>> GetCellDetailByCellID(int cellID)
         {
             var values = await _context.CellDetails.Include(x => x.BatteryCell).Include(x => x.Producer).Where(x => x.BatteryCellId == cellID).ToListAsync();

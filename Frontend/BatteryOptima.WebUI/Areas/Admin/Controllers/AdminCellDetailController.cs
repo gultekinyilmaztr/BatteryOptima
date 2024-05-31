@@ -34,8 +34,7 @@ namespace BatteryOptima.WebUI.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        [Route("Index")]
-
+        [Route("Index /{id}")]
         public async Task<IActionResult> Index(List<ResultCellDetailByCellIdDto> resultCellDetailByCellIdDto)
         {
             foreach (var item in resultCellDetailByCellIdDto)
@@ -43,17 +42,15 @@ namespace BatteryOptima.WebUI.Areas.Admin.Controllers
                 if (item.Available)
                 {
                     var client = _httpClientFactory.CreateClient();
-                    var jsonData = JsonConvert.SerializeObject(resultCellDetailByCellIdDto);
-                    StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-                    await client.PutAsync("https://localhost:7258/api/BatteryCells/", stringContent);
-                    return RedirectToAction("Index", "AdminCell");
+                    await client.GetAsync("https://localhost:7258/api/CellDetails/CellDetailChangeAvailableToTrue?id=" + item.CellDetailId);       
                 }
                 else
                 {
-
+                    var client = _httpClientFactory.CreateClient();
+                    await client.GetAsync("https://localhost:7258/api/CellDetails/CellDetailChangeAvailableToFalse?id=" + item.CellDetailId);
                 }
             }
-            return View();
+            return RedirectToAction("Index","AdminCar");
 
         }
     }

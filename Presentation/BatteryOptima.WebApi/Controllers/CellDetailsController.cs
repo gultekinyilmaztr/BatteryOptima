@@ -1,4 +1,5 @@
 ﻿using BatteryOptima.Application.Features.Mediator.Commands.BatteryCellCommands;
+using BatteryOptima.Application.Features.Mediator.Commands.CellDetalCommands;
 using BatteryOptima.Application.Features.Mediator.Queries.BatteryCellQueries;
 using BatteryOptima.Application.Features.Mediator.Queries.CellDetailQueries;
 using MediatR;
@@ -44,5 +45,28 @@ namespace BatteryOptima.WebApi.Controllers
             await _mediator.Send(command);
             return Ok("Özellik başarıyla güncellendi");
         }
+
+        [HttpGet("CellDetailChangeAvailableToFalse")]
+        public async Task<IActionResult> CellDetailChangeAvailableToFalse(int id)
+        {
+            _mediator.Send(new UpdateCellDetailAvailableChangeToFalseCommand(id));
+            return Ok("Güncelleme Yapıldı");
+        }
+
+        [HttpGet("CellDetailChangeAvailableToTrue")]
+        public async Task<IActionResult> CellDetailChangeAvailableToTrue(int id)
+        {
+            _mediator.Send(new UpdateCellDetailAvailableChangeToTrueCommand(id));
+            return Ok("Güncelleme Yapıldı");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateCellDetailByCellID(CreateCellDetailByCellCommand command)
+        {
+            await _mediator.Send(command);
+            return Ok("Ekleme Yapıldı");
+        }
+
+
     }
 }
