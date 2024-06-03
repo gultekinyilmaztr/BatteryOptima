@@ -13,6 +13,12 @@ namespace BatteryOptima.Application.Features.Mediator.Handlers.CellDetailHandler
     public class CreateCellDetailByCellCommandHandler : IRequestHandler<CreateCellDetailByCellCommand>
     {
         private readonly ICellDetailRepository _repository;
+
+        public CreateCellDetailByCellCommandHandler(ICellDetailRepository repository)
+        {
+            _repository = repository;
+        }
+
         public async Task Handle(CreateCellDetailByCellCommand request, CancellationToken cancellationToken)
         {
             _repository.CreateCellDetailByCell(new CellDetail

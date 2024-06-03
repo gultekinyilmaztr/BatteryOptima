@@ -8,7 +8,7 @@ namespace BatteryOptima.WebUI.Areas.Admin.Controllers
 {
 
     [Area("Admin")]
-    //[Route("Admin/AdminCellDetail")]
+    [Route("Admin/AdminCellDetail")]
     public class AdminCellDetailController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
@@ -42,7 +42,7 @@ namespace BatteryOptima.WebUI.Areas.Admin.Controllers
                 if (item.Available)
                 {
                     var client = _httpClientFactory.CreateClient();
-                    await client.GetAsync("https://localhost:7258/api/CellDetails/CellDetailChangeAvailableToTrue?id=" + item.CellDetailId);       
+                    await client.GetAsync("https://localhost:7258/api/CellDetails/CellDetailChangeAvailableToTrue?id=" + item.CellDetailId);
                 }
                 else
                 {
@@ -50,8 +50,9 @@ namespace BatteryOptima.WebUI.Areas.Admin.Controllers
                     await client.GetAsync("https://localhost:7258/api/CellDetails/CellDetailChangeAvailableToFalse?id=" + item.CellDetailId);
                 }
             }
-            return RedirectToAction("Index","AdminCar");
+            return RedirectToAction("Index", "AdminCell");
 
         }
+
     }
 }

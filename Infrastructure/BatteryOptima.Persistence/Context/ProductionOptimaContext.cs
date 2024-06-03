@@ -10,12 +10,11 @@ namespace ProductionOptima.Persistence.Context
 {
     public class ProductionOptimaContext:DbContext
     {
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=ZY-N036-V15\\SQLEXPRESS;Initial" +
-                " Catalog=BatteryOptimaDb;Integrated Security=True;" +
-                "Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;" +
-                "Application Intent=ReadWrite;Multi Subnet Failover=False");
+            optionsBuilder.UseSqlServer("Data Source=ZY-N036-V15\\SQLEXPRESS;Initial Catalog=BatteryOptimaDb;" +
+                "Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;");
         }
 
         public DbSet<BatteryCell> BatteryCells { get; set; }
@@ -24,3 +23,4 @@ namespace ProductionOptima.Persistence.Context
     }
 
 }
+

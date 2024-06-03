@@ -27,24 +27,24 @@ namespace BatteryOptima.WebApi.Controllers
             return Ok(values);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> CreateCellDetail(CreateCellDetailCommand command)
-        {
-            await _mediator.Send(command);
-            return Ok("Özellik başarıyla eklendi");
-        }
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> RemoveCellDetail(int id)
-        {
-            await _mediator.Send(new RemoveCellDetailCommand(id));
-            return Ok("Özellik başarıyla silindi");
-        }
-        [HttpPut]
-        public async Task<IActionResult> UpdateCellDetail(UpdateCellDetailCommand command)
-        {
-            await _mediator.Send(command);
-            return Ok("Özellik başarıyla güncellendi");
-        }
+        //[HttpPost]
+        //public async Task<IActionResult> CreateCellDetail(CreateCellDetailCommand command)
+        //{
+        //    await _mediator.Send(command);
+        //    return Ok("Özellik başarıyla eklendi");
+        //}
+        //[HttpDelete("{id}")]
+        //public async Task<IActionResult> RemoveCellDetail(int id)
+        //{
+        //    await _mediator.Send(new RemoveCellDetailCommand(id));
+        //    return Ok("Özellik başarıyla silindi");
+        //}
+        //[HttpPut]
+        //public async Task<IActionResult> UpdateCellDetail(UpdateCellDetailCommand command)
+        //{
+        //    await _mediator.Send(command);
+        //    return Ok("Özellik başarıyla güncellendi");
+        //}
 
         [HttpGet("CellDetailChangeAvailableToFalse")]
         public async Task<IActionResult> CellDetailChangeAvailableToFalse(int id)
@@ -63,7 +63,7 @@ namespace BatteryOptima.WebApi.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateCellDetailByCellID(CreateCellDetailByCellCommand command)
         {
-            await _mediator.Send(command);
+            _mediator.Send(command);
             return Ok("Ekleme Yapıldı");
         }
 

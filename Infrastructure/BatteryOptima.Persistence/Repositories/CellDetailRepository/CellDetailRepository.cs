@@ -40,9 +40,9 @@ namespace BatteryOptima.Persistence.Repositories.CellDetailRepository
             _context.SaveChanges();
         }
 
-        public async Task<List<CellDetail>> GetCellDetailByCellID(int cellID)
+        public Task<List<CellDetail>> GetCellDetailByCellID(int cellID)
         {
-            var values = await _context.CellDetails.Include(x => x.BatteryCell).Include(x => x.Producer).Where(x => x.BatteryCellId == cellID).ToListAsync();
+            var values = _context.CellDetails.Include(x => x.BatteryCell).Include(x => x.Producer).Where(x => x.BatteryCellId == cellID).ToListAsync();
             return values;
         }
     }
