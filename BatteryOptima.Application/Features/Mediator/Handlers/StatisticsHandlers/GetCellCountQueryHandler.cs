@@ -14,6 +14,12 @@ namespace BatteryOptima.Application.Features.Mediator.Handlers.StatisticsHandler
     public class GetCellCountQueryHandler : IRequestHandler<GetCellCountQuery, GetCellCountQueryResult>
     {
         private readonly IBatteryCellRepository _repository;
+
+        public GetCellCountQueryHandler(IBatteryCellRepository repository)
+        {
+            _repository = repository;
+        }
+
         public async Task<GetCellCountQueryResult> Handle(GetCellCountQuery request, CancellationToken cancellationToken)
         {
             var value = _repository.GetCellCount();
