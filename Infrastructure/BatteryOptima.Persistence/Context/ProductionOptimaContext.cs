@@ -13,7 +13,7 @@ namespace ProductionOptima.Persistence.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=ZY-N036-V15\\SQLEXPRESS;Initial Catalog=BatteryOptimaDb;" +
+            optionsBuilder.UseSqlServer("Data Source=MONSTER3D;Initial Catalog=BatteryOptimaDb;" +
                 "Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;");
         }
 
