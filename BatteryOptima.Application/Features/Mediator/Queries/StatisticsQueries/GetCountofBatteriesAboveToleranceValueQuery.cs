@@ -1,4 +1,5 @@
 ﻿using BatteryOptima.Application.Features.Mediator.Results.StatisticsResults;
+using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BatteryOptima.Application.Features.Mediator.Queries.StatisticsQueries
 {
-    public class GetCountofBatteriesAboveToleranceValueQuery : GetCountofBatteriesAboveToleranceValueQueryResult
+    public class GetCountofBatteriesAboveToleranceValueQuery : IRequest<GetCountofBatteriesAboveToleranceValueQueryResult> 
     {
     }
 }

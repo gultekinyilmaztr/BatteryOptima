@@ -37,17 +37,20 @@ namespace BatteryOptima.Persistence.Repositories.StatisticsRepository
 
         public int GetCountofNonUsedBatteries()
         {
-            throw new NotImplementedException();
+            var value = _context.CellDetails.Where(x => !x.Available).Count();
+            return value;
         }
 
         public int GetCountofUsedBatteries()
         {
-            throw new NotImplementedException();
+            var value = _context.CellDetails.Where(x => x.Available).Count();
+            return value;
         }
 
         public int GetCountofWasteBatteries()
         {
-            throw new NotImplementedException();
+            var value = _context.CellDetails.Where(x => !x.Available).Count();
+            return value; //Yeni entity oluşturalacak
         }
 
         public double GetDailyBatteryMeasurements()
