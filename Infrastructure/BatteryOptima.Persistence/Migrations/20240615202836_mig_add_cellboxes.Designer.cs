@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProductionOptima.Persistence.Context;
 
@@ -11,9 +12,11 @@ using ProductionOptima.Persistence.Context;
 namespace BatteryOptima.Persistence.Migrations
 {
     [DbContext(typeof(ProductionOptimaContext))]
-    partial class ProductionOptimaContextModelSnapshot : ModelSnapshot
+    [Migration("20240615202836_mig_add_cellboxes")]
+    partial class mig_add_cellboxes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -128,9 +131,6 @@ namespace BatteryOptima.Persistence.Migrations
                     b.Property<int>("BatteryCellId")
                         .HasColumnType("int");
 
-                    b.Property<int>("CellBoxId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("DateOfTest")
                         .HasColumnType("datetime2");
 
@@ -146,8 +146,6 @@ namespace BatteryOptima.Persistence.Migrations
                     b.HasKey("CellDetailId");
 
                     b.HasIndex("BatteryCellId");
-
-                    b.HasIndex("CellBoxId");
 
                     b.HasIndex("ProducerId");
 
@@ -205,12 +203,6 @@ namespace BatteryOptima.Persistence.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("BatteryOptima.Domain.Entities.CellBox", "CellBox")
-                        .WithMany("CellDetails")
-                        .HasForeignKey("CellBoxId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("ProductionOptima.Domain.Entities.Producer", "Producer")
                         .WithMany("CellDetails")
                         .HasForeignKey("ProducerId")
@@ -219,14 +211,7 @@ namespace BatteryOptima.Persistence.Migrations
 
                     b.Navigation("BatteryCell");
 
-                    b.Navigation("CellBox");
-
                     b.Navigation("Producer");
-                });
-
-            modelBuilder.Entity("BatteryOptima.Domain.Entities.CellBox", b =>
-                {
-                    b.Navigation("CellDetails");
                 });
 
             modelBuilder.Entity("BatteryOptima.Domain.Entities.Location", b =>

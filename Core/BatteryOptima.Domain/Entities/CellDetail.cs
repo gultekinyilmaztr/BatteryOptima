@@ -14,12 +14,12 @@ namespace ProductionOptima.Domain.Entities
         public BatteryCell BatteryCell { get; set; }
         public int ProducerId { get; set; }
         public Producer Producer { get; set; }
-        //public int FeatureID { get; set; }
-        //public Feature Feature { get; set; }
         public double TestIR { get; set; }
         public double TestVoltage { get; set; }
         public DateTime DateOfTest { get; set; }
         public bool Available { get; set; }
+        public int CellBoxId { get; set; }
+        public CellBox CellBox { get; set; }
 
     }
 }

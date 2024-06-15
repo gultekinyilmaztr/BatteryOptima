@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BatteryOptima.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
@@ -16,5 +17,6 @@ namespace ProductionOptima.Domain.Entities
         public DateTime DateOfMesurementDate { get; set; }
         public bool Available { get; set; }
         public List<CellDetail> CellDetails { get; set; }
+        public List<UseACell> UseACells { get; set; }
     }
 }
