@@ -26,7 +26,8 @@ namespace BatteryOptima.Application.Features.Mediator.Handlers.CellDetailHandler
                 TestVoltage = x.TestVoltage,
                 DateOfTest = x.DateOfTest,
                 Available = x.Available,
-                BatteryCellId = x.BatteryCell.BatteryCellId
+                BatteryCellId = x.BatteryCell.BatteryCellId,
+               
             }).ToList();
         }
     }

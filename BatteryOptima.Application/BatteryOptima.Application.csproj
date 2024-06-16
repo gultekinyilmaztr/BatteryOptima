@@ -16,4 +16,15 @@
     <ProjectReference Include="..\Core\BatteryOptima.Domain\BatteryOptima.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Mediator\Commands\LocationCommands\" />
+    <Folder Include="Features\Mediator\Commands\UseACellCommands\" />
+    <Folder Include="Features\Mediator\Handlers\LocationHandler\" />
+    <Folder Include="Features\Mediator\Handlers\UseACellHandler\" />
+    <Folder Include="Features\Mediator\Queries\LocationQueries\" />
+    <Folder Include="Features\Mediator\Queries\UseACellsQueries\" />
+    <Folder Include="Features\Mediator\Results\LocationResults\" />
+    <Folder Include="Features\Mediator\Results\UseACellsResults\" />
+  </ItemGroup>
+
 </Project>

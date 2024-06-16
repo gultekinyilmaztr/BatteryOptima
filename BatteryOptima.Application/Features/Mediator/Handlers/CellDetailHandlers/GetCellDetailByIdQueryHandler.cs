@@ -35,6 +35,8 @@ namespace BatteryOptima.Application.Features.Mediator.Handlers.CellDetailHandler
                 TestVoltage=values.TestVoltage,
                 DateOfTest=values.DateOfTest,
                 Available=values.Available,
+                CellBoxNumber = values.CellBox.CellBoxNumber,
+                                
             };
         }
     }

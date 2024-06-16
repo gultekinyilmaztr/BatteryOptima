@@ -18,5 +18,8 @@ namespace BatteryOptima.Application.Features.Mediator.Results.CellDetailResults
         public DateTime DateOfTest { get; set; }
         public bool Available { get; set; }
         public int BatteryCellId { get; set; }
+        public int CellBoxId { get; set; }
+        public string CellBoxNumber { get; set; }
+        
     }
 }

@@ -16,6 +16,7 @@ namespace BatteryOptima.Application.Features.Mediator.Commands.BatteryCellComman
         public double TestVoltage { get; set; }
         public DateTime DateOfTest { get; set; }
         public bool Available { get; set; }
+        public int CellBoxId { get; set; }
 
     }
 }
