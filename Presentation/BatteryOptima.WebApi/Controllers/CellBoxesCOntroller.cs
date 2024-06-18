@@ -9,11 +9,11 @@ namespace BatteryOptima.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CellBoxesCOntroller : Controller
+    public class CellBoxesController : Controller
     {
         private readonly IMediator _mediator;
 
-        public CellBoxesCOntroller(IMediator mediator)
+        public CellBoxesController(IMediator mediator)
         {
             _mediator = mediator;
         }

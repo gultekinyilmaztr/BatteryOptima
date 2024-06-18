@@ -17,14 +17,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Mediator\Commands\LocationCommands\" />
     <Folder Include="Features\Mediator\Commands\UseACellCommands\" />
-    <Folder Include="Features\Mediator\Handlers\LocationHandler\" />
-    <Folder Include="Features\Mediator\Handlers\UseACellHandler\" />
-    <Folder Include="Features\Mediator\Queries\LocationQueries\" />
-    <Folder Include="Features\Mediator\Queries\UseACellsQueries\" />
-    <Folder Include="Features\Mediator\Results\LocationResults\" />
-    <Folder Include="Features\Mediator\Results\UseACellsResults\" />
+    <Folder Include="Interfaces\CellBoxInterfaces\" />
+    <Folder Include="Interfaces\LocationInterfaces\" />
   </ItemGroup>
 
 </Project>

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProductionOptima.Persistence.Context;
 
@@ -11,9 +12,11 @@ using ProductionOptima.Persistence.Context;
 namespace BatteryOptima.Persistence.Migrations
 {
     [DbContext(typeof(ProductionOptimaContext))]
-    partial class ProductionOptimaContextModelSnapshot : ModelSnapshot
+    [Migration("20240618131911_pickLocationerase")]
+    partial class pickLocationerase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -56,31 +59,6 @@ namespace BatteryOptima.Persistence.Migrations
                     b.ToTable("Locations");
                 });
 
-            modelBuilder.Entity("BatteryOptima.Domain.Entities.Personnel", b =>
-                {
-                    b.Property<int>("PersonnelId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PersonnelId"));
-
-                    b.Property<string>("PersonnelMail")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PersonnelName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PersonnelSurname")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("PersonnelId");
-
-                    b.ToTable("Personnel");
-                });
-
             modelBuilder.Entity("BatteryOptima.Domain.Entities.UseACell", b =>
                 {
                     b.Property<int>("UseACellId")
@@ -105,49 +83,6 @@ namespace BatteryOptima.Persistence.Migrations
                     b.HasIndex("LocationId");
 
                     b.ToTable("UseACells");
-                });
-
-            modelBuilder.Entity("BatteryOptima.Domain.Entities.UseACellProcess", b =>
-                {
-                    b.Property<int>("UseACellProcessId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UseACellProcessId"));
-
-                    b.Property<int>("BatteryCellId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("DropOffDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("DropOffDescription")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("DropOffLocation")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PersonnelId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("PickUpDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("PickUpDescription")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("PickUpLocation")
-                        .HasColumnType("int");
-
-                    b.HasKey("UseACellProcessId");
-
-                    b.HasIndex("BatteryCellId");
-
-                    b.HasIndex("PersonnelId");
-
-                    b.ToTable("UseACellProcess");
                 });
 
             modelBuilder.Entity("ProductionOptima.Domain.Entities.BatteryCell", b =>
@@ -262,25 +197,6 @@ namespace BatteryOptima.Persistence.Migrations
                     b.Navigation("Location");
                 });
 
-            modelBuilder.Entity("BatteryOptima.Domain.Entities.UseACellProcess", b =>
-                {
-                    b.HasOne("ProductionOptima.Domain.Entities.BatteryCell", "BatteryCell")
-                        .WithMany("UseACellProcesses")
-                        .HasForeignKey("BatteryCellId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("BatteryOptima.Domain.Entities.Personnel", "Personnel")
-                        .WithMany("UseACellProcesses")
-                        .HasForeignKey("PersonnelId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("BatteryCell");
-
-                    b.Navigation("Personnel");
-                });
-
             modelBuilder.Entity("ProductionOptima.Domain.Entities.CellDetail", b =>
                 {
                     b.HasOne("ProductionOptima.Domain.Entities.BatteryCell", "BatteryCell")
@@ -318,16 +234,9 @@ namespace BatteryOptima.Persistence.Migrations
                     b.Navigation("UseACells");
                 });
 
-            modelBuilder.Entity("BatteryOptima.Domain.Entities.Personnel", b =>
-                {
-                    b.Navigation("UseACellProcesses");
-                });
-
             modelBuilder.Entity("ProductionOptima.Domain.Entities.BatteryCell", b =>
                 {
                     b.Navigation("CellDetails");
-
-                    b.Navigation("UseACellProcesses");
 
                     b.Navigation("UseACells");
                 });

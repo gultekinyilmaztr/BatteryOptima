@@ -18,5 +18,6 @@ namespace ProductionOptima.Domain.Entities
         public bool Available { get; set; }
         public List<CellDetail> CellDetails { get; set; }
         public List<UseACell> UseACells { get; set; }
+        public List<UseACellProcess> UseACellProcesses { get; set; }
     }
 }

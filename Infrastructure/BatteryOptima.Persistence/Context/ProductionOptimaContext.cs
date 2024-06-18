@@ -24,6 +24,7 @@ namespace ProductionOptima.Persistence.Context
         public DbSet<UseACell> UseACells { get; set; }
         public DbSet<Location> Locations { get; set; }
         public DbSet<CellBox> CellBoxes { get; set; }
+        public DbSet<UseACellProcess> UseACellProcesses { get; set; }
     }
 
 }

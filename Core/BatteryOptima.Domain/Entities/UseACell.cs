@@ -10,7 +10,7 @@ namespace BatteryOptima.Domain.Entities
     public class UseACell
     {
         public int UseACellId { get; set; }
-        public int PickUpLocationId { get; set; }
+        public int LocationId { get; set; }
         public Location Location { get; set; }
         public int BatteryCellId { get; set; }
         public BatteryCell BatteryCell { get; set; }
