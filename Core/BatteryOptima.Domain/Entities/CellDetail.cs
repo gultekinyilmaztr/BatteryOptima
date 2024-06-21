@@ -20,6 +20,7 @@ namespace ProductionOptima.Domain.Entities
         public bool Available { get; set; }
         public int CellBoxId { get; set; }
         public CellBox CellBox { get; set; }
+        public List<UseACell> UseACells { get; set; }
 
     }
 }

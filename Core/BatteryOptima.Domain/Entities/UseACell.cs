@@ -15,5 +15,10 @@ namespace BatteryOptima.Domain.Entities
         public int BatteryCellId { get; set; }
         public BatteryCell BatteryCell { get; set; }
         public bool Available { get; set; }
+        public int CellDetailId { get; set; }
+        public CellDetail CellDetail { get; set; }
+
+
+
     }
 }

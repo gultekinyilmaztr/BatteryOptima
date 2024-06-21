@@ -5,6 +5,7 @@ using BatteryOptima.Application.Interfaces;
 using BatteryOptima.Application.Interfaces.UseACellInterfaces;
 using BatteryOptima.Domain.Entities;
 using MediatR;
+using ProductionOptima.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,9 +26,10 @@ namespace BatteryOptima.Application.Features.Mediator.Handlers.UseACellHandler
         public async Task<List<GetUseACellQueryResult>> Handle(GetUseACellQuery request, CancellationToken cancellationToken)
         {
             var values = await _repository.GetByFilterAsync(x=>x.LocationId ==request.LocationId && x.Available ==true);
-            var results = values.Select(x => new GetUseACellQueryResult
+            var results = values.Select(y => new GetUseACellQueryResult
             {
-                BatteryCellId = x.BatteryCellId,
+                BatteryCellId = y.BatteryCellId,
+                CellSerialNo=y.BatteryCell.CellSerialNo,
                 
             }).ToList();
             return results;

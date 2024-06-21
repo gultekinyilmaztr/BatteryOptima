@@ -16,10 +16,15 @@ namespace BatteryOptima.WebApi.Controllers
             _mediator = mediator;
         }
 
-        [HttpPost]
-        public async Task<IActionResult> GetUseACellListByLocation(GetUseACellQuery query)
+        [HttpGet]
+        public async Task<IActionResult> GetUseACellListByLocation(int locationId, bool available)
         {
-            var values = await _mediator.Send(query);
+            GetUseACellQuery getUseACellQuery = new GetUseACellQuery()
+            {
+                Available = available,
+                LocationId = locationId
+            };
+            var values = await _mediator.Send(getUseACellQuery);
             return Ok(values);
         }
 

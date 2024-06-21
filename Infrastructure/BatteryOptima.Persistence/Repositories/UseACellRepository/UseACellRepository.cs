@@ -2,6 +2,7 @@
 using BatteryOptima.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using ProductionOptima.Persistence.Context;
+using ProductionOptima.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,10 +21,16 @@ namespace BatteryOptima.Persistence.Repositories.UseACellRepository
             _context = context;
         }
 
+        //public async Task<List<UseACell>> GetByFilterAsync(Expression<Func<UseACell, bool>> filter)
+        //{
+        //    var values = await _context.UseACells.Where(filter).Include(x => x.BatteryCell).ThenInclude(y=>y.CellDetails).ToListAsync();
+        //    return values;
+
+        //}
+
         public async Task<List<UseACell>> GetByFilterAsync(Expression<Func<UseACell, bool>> filter)
         {
-            var values = await _context.UseACells.Where(filter).ToListAsync();
-            return values.ToList();
+            var values = await _context.BatteryCells.Include(x => x.UseACells).Include(x => x.CellDetails).ToListAsync();
         }
     }
 }

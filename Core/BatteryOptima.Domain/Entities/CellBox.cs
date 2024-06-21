@@ -12,6 +12,7 @@ namespace BatteryOptima.Domain.Entities
         public int CellBoxId { get; set; }
         public string CellBoxNumber { get; set; }
         public List<CellDetail> CellDetails { get; set; }
+        public List<UseACellProcess> UseACellProcesses { get; set; }
 
     }
 }
